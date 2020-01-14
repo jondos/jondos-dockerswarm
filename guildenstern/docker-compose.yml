@@ -246,6 +246,14 @@ services:
         - /root/icinga2_rosenkranz_files/db:/var/lib/mysql
         - /root/icinga2_rosenkranz_files/icinga2 to /var/lib/icinga2
 
+    jira-cloud-wage-tool:
+      image: jondos/jira-cloud-wage-tool
+      hostname: jira-cloud-wage-tool.jondos.de
+      environment:
+        - VIRTUAL_HOST=jira-cloud-wage-tool.jondos.de
+        - LETSENCRYPT_HOST=jira-cloud-wage-tool.jondos.de
+        - LETSENCRYPT_EMAIL=oliver.meyer@jondos.de
+
 volumes:
   certs:
   html:
