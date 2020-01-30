@@ -106,7 +106,7 @@ services:
         - ENABLE_SPAMASSASSIN=1
         - ENABLE_CLAMAV=1
         - ENABLE_FAIL2BAN=0
-        - ENABLE_POSTGREY=1
+        - ENABLE_POSTGREY=0
         - ONE_DIR=1
         - DMS_DEBUG=1
         - ENABLE_SASLAUTHD=0
@@ -247,7 +247,7 @@ services:
         - /root/icinga2_rosenkranz_files/icinga2 to /var/lib/icinga2
 
     jira-cloud-wage-tool:
-      image: jondos/jira-cloud-wage-tool
+      image: jondos/jira-cloud-wage-tool:latest
       hostname: jira-cloud-wage-tool.jondos.de
       environment:
         - VIRTUAL_HOST=jira-cloud-wage-tool.jondos.de
