@@ -247,16 +247,20 @@ services:
         - /root/icinga2_rosenkranz_files/icinga2 to /var/lib/icinga2
 
     wagelog:
-      image: jondos/wagelog-for-jira-cloud:release
+      image: jondos/wagelog-for-jira-cloud:latest
       hostname: wagetool.jondos.de
+      ports:
+        - "80:3000"
       environment:
         - VIRTUAL_HOST=wagetool.jondos.de
         - LETSENCRYPT_HOST=wagetool.jondos.de
         - LETSENCRYPT_EMAIL=oliver.meyer@jondos.de
 
     wagelog-staging:
-      image: jondos/wagelog-for-jira-cloud:latest
+      image: jondos/wagelog-for-jira-cloud:staging
       hostname: staging.wagetool.jondos.de
+      ports:
+        - "80:3000"
       environment:
         - VIRTUAL_HOST=staging.wagetool.jondos.de
         - LETSENCRYPT_HOST=staging.wagetool.jondos.de
@@ -269,7 +273,7 @@ services:
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - /root/.docker/config.json:/config.json
-      command: --interval 30 --label-enable
+      command: --interval --label-enable
 
 volumes:
   certs:
