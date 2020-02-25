@@ -106,7 +106,7 @@ services:
         - ENABLE_SPAMASSASSIN=1
         - ENABLE_CLAMAV=1
         - ENABLE_FAIL2BAN=0
-        - ENABLE_POSTGREY=1
+        - ENABLE_POSTGREY=0
         - ONE_DIR=1
         - DMS_DEBUG=1
         - ENABLE_SASLAUTHD=0
@@ -247,7 +247,7 @@ services:
         - /root/icinga2_rosenkranz_files/icinga2 to /var/lib/icinga2
 
     wagelog:
-      image: jondos/wagelog-for-jira-cloud
+      image: jondos/wagelog-for-jira-cloud:release
       hostname: wagetool.jondos.de
       environment:
         - VIRTUAL_HOST=wagetool.jondos.de
@@ -255,7 +255,7 @@ services:
         - LETSENCRYPT_EMAIL=oliver.meyer@jondos.de
 
     wagelog-staging:
-      image: jondos/wagelog-for-jira-cloud
+      image: jondos/wagelog-for-jira-cloud:latest
       hostname: staging.wagetool.jondos.de
       environment:
         - VIRTUAL_HOST=staging.wagetool.jondos.de
