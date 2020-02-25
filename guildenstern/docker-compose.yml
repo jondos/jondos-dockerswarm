@@ -246,13 +246,30 @@ services:
         - /root/icinga2_rosenkranz_files/db:/var/lib/mysql
         - /root/icinga2_rosenkranz_files/icinga2 to /var/lib/icinga2
 
-    jira-cloud-wage-tool:
-      image: jondos/jira-cloud-wage-tool
-      hostname: jira-cloud-wage-tool.jondos.de
+    wagelog:
+      image: jondos/wagelog-for-jira-cloud
+      hostname: wagetool.jondos.de
       environment:
-        - VIRTUAL_HOST=jira-cloud-wage-tool.jondos.de
-        - LETSENCRYPT_HOST=jira-cloud-wage-tool.jondos.de
+        - VIRTUAL_HOST=wagetool.jondos.de
+        - LETSENCRYPT_HOST=wagetool.jondos.de
         - LETSENCRYPT_EMAIL=oliver.meyer@jondos.de
+
+    wagelog-staging:
+      image: jondos/wagelog-for-jira-cloud
+      hostname: staging.wagetool.jondos.de
+      environment:
+        - VIRTUAL_HOST=staging.wagetool.jondos.de
+        - LETSENCRYPT_HOST=staging.wagetool.jondos.de
+        - LETSENCRYPT_EMAIL=oliver.meyer@jondos.de
+      labels:
+        - com.centurylinklabs.watchtower.enable: "true"
+
+    watchtower:
+      image: containrrr/watchtower
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /root/.docker/config.json:/config.json
+      command: --interval 30 --label-enable
 
 volumes:
   certs:
