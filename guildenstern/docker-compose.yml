@@ -266,7 +266,7 @@ services:
         - LETSENCRYPT_HOST=staging.wagetool.jondos.de
         - LETSENCRYPT_EMAIL=oliver.meyer@jondos.de
       labels:
-        - com.centurylinklabs.watchtower.enable: "true"
+        com.centurylinklabs.watchtower.enable: "true"
 
     watchtower:
       image: containrrr/watchtower
