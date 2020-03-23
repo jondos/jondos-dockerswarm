@@ -251,6 +251,7 @@ services:
       image: index.docker.io/jondos/wagelog-for-jira-cloud:latest
       hostname: wagelog.jondos.de
       environment:
+        - NODE_ENV=production
         - VIRTUAL_PORT=443
         - VIRTUAL_HOST=wagelog.jondos.de
         - LETSENCRYPT_HOST=wagelog.jondos.de
@@ -263,6 +264,7 @@ services:
       image: index.docker.io/jondos/wagelog-for-jira-cloud:staging
       hostname: staging.wagelog.jondos.de
       environment:
+        - NODE_ENV=staging      
         - VIRTUAL_PORT=443
         - VIRTUAL_HOST=staging.wagelog.jondos.de
         - LETSENCRYPT_HOST=staging.wagelog.jondos.de
