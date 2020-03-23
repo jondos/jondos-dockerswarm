@@ -247,7 +247,8 @@ services:
         - /root/icinga2_rosenkranz_files/icinga2 to /var/lib/icinga2
 
     wagelog:
-      image: jondos/wagelog-for-jira-cloud:latest
+      # Bug in watchtower: needs full hostname or it will not find credentials
+      image: index.docker.io/jondos/wagelog-for-jira-cloud:latest
       hostname: wagelog.jondos.de
       environment:
         - VIRTUAL_PORT=443
@@ -258,7 +259,8 @@ services:
         com.centurylinklabs.watchtower.enable: "true"
 
     wagelog-staging:
-      image: jondos/wagelog-for-jira-cloud:staging
+      # Bug in watchtower: needs full hostname or it will not find credentials
+      image: index.docker.io/jondos/wagelog-for-jira-cloud:staging
       hostname: staging.wagelog.jondos.de
       environment:
         - VIRTUAL_PORT=443
