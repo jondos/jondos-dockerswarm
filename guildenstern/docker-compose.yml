@@ -9,6 +9,8 @@ services:
         - "78.129.167.102:443:443"
         - "78.129.167.163:80:80"
         - "78.129.167.163:443:443"
+        - "78.129.167.168:80:80"
+        - "78.129.167.168:443:443"
       depends_on:
         - jenkins
         - subversion
@@ -128,9 +130,6 @@ services:
         - LETSENCRYPT_EMAIL=oliver.meyer@jondos.de
       volumes:
         - /root/shop/db:/var/lib/mysql
-      #ports:
-      #  - "78.129.167.5:80:80"
-      #  - "78.129.167.5:443:443"
 
     ipcheck2:
       build: ./ipcheck
