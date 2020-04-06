@@ -268,6 +268,8 @@ services:
         - VIRTUAL_HOST=staging.wagelog.jondos.de
         - LETSENCRYPT_HOST=staging.wagelog.jondos.de
         - LETSENCRYPT_EMAIL=oliver.meyer@jondos.de
+        - JIRA_TARGET_INSTANCE=jondos-staging
+        - JIRA_API_KEY=${JONDOS_STAGING_API_KEY}
       labels:
         com.centurylinklabs.watchtower.enable: "true"
 
